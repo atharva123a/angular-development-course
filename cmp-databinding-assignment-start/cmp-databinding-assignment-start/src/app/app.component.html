@@ -14,4 +14,9 @@
       </ol>
     </div>
   </div>
+    <app-game-control 
+    (increment)="onIncrement($event)" 
+    (reset)="onReset()"></app-game-control>
+    <app-even *ngFor="let number of evenNumbers" [evenNumber]="number"></app-even>
+    <app-odd *ngFor="let number of oddNumbers" [oddNumber]="number"></app-odd>
 </div>
