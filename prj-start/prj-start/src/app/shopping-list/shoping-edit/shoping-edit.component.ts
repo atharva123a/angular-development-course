@@ -12,13 +12,15 @@ export class ShopingEditComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  @ViewChild('addName') name :  ElementRef;
-  @ViewChild('addAmount') amount : ElementRef;
+  @ViewChild('nameInput', {static : false}) name :  ElementRef;
+  @ViewChild('amountInput', {static : false}) amount : ElementRef;
 
   @Output() toggleAdd = new EventEmitter<Ingredient>();
 
   addIngredients(){
-    let newIngredient = new Ingredient(this.name.nativeElement.value, this.amount.nativeElement.value);
+    const elName = this.name.nativeElement.value;
+    const elAmount = this.amount.nativeElement.value;
+    let newIngredient = new Ingredient(elName, elAmount);
     this.toggleAdd.emit(newIngredient);
   }
 
